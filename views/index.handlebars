@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <img class="img " src="./assets/images/hungryjack.png" alt="burger" width="150px">
+      <h1 class="title"><span style="color: #0b3b89;">Eat</span>-<span style="color: #efcd51;">Da</span>-<span style="color: #aa0a0a">Burger</span></h1>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-6">
+      <h3 class="panel panel-default panel-header text-center">Ready to eat</h3>
+      <ul class="burgers">
+        {{#each burgers}}
+        <div class="row">
+          <div class="col-lg-6">
+            <li class="panel burger" data-id="{{this.id}}">{{this.id}}. {{this.burger_name}} </li>
+          </div>
+          <div class="col-lg-6 text-right">
+            <button data-burgername="{{this.burger_name}}" data-burgerid="{{this.id}}" class="updateBurger btn-sm btn-primary">Devour it!</button>
+          </div>
+        </div>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-lg-6">
+      <h3 class="panel panel-default panel-header text-center">Devoured burgers</h3>
+      <ul class="devouredBurgers">
+        {{#each devouredBurgers}}
+        <div class="row text-left">
+          <div class="col-lg-12">
+            <li class='panel devoured'>{{this.id}}. {{this.burger_name}}</li>
+          </div>
+        </div>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="row text-center options">
+    <h2 class="panel panel-default panel-header text-center">Create Your Burger</h2>
+    <hr class="panel panel-default panel-header text-center">
+    <div class="col-lg-3 text-left">
+      <h4 class="panel-blue text-center title">Choose your meat</h4>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Ground Beef</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Turkey</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Chicken</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Veggie</label>
+      </div>
+    </div>
+
+    <div class="col-lg-3 text-left">
+      <h4 class="panel-blue text-center title">Choose your cheese</h4>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">American</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Jack</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Cheddar</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Swiss</label>
+      </div>
+    </div>
+
+    <div class="col-lg-3 text-left">
+      <h4 class="panel-blue text-center title">Choose your sauce</h4>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Mayo</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Mustard</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Ketchup</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Brown Mustard</label>
+      </div>
+    </div>
+
+    <div class="col-lg-3 text-left">
+      <h4 class="panel-blue text-center title">Choose your vegetables</h4>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Lettuce</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Tomato</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Onions</label>
+      </div>
+      <div class="checkbox">
+        <label class="strikethrough"><input type="checkbox" value="">Pickles</label>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="row text-center options">
+    <div class="col-lg-12 text-center">
+      <textarea class="burger-name" name="burger" rows="1" cols="30" placeholder="Give your burger a name & add it!"></textarea>
+    </div>
+    <button class="btn-lg btn-primary" type="button" id="createBurger">Add Burger!</button>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+.burgers, .devouredBurgers {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: bold;
+  font-stretch: expanded;
+}
+li {
+  background-color: #fcfcfc;
+  box-shadow: 2px 2px 4px black;
+  border: 1px solid black;
+}
+.title {
+  font-size: 35px;
+  font-weight: bold;
+  font-family: 'Shrikhand';
+  text-shadow: 2px 4px 4px black;
+}
+.updateBurger, .btn {
+  box-shadow: 2px 2px 2px black;
+}
+.devoured {
+  background: linear-gradient(rgba(255,255,255,0.5),rgba(120,120,120,0.3));
+  color: grey;
+  text-shadow: 1px 0px 1px black;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 20px;
+}
+.burger {
+  background: linear-gradient(rgba(255,255,255,0.5),rgba(120,120,120,0.3));
+  text-shadow: 1px 0px 1px black;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 20px;
+}
+.panel-header {
+  background-color: black;
+  color: #dddddd;
+  font-size: 20px;
+  font-family: fantasy;
+
+}
+.panel-blue {
+  background-color: #0b3b89;
+  color: #dddddd;
+  font-size: 20px;
+}
+.options {
+  background-color: #efcd51;
+}
+.checkbox {
+  font-size: 15px;
+  color: #aa0a0a;
+  font-family: fantasy;
+}
+.btn-lg {
+  background-color: #aa0a0a;
+}
+label.strikethrough > input[type=checkbox]:checked  {
+  text-decoration: line-through;
+}
