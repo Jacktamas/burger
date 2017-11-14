@@ -22,6 +22,7 @@ $(document).ready(function(){
         data: newBurger
       }).then(function(results) {
         if(results.id && results.burger_name){
+          $(window).scrollTop($('#top').offset().top);
           location.reload();
         }
       });
@@ -33,10 +34,10 @@ $(document).ready(function(){
     }
   });
 
+
   $(".updateBurger").on("click", function() {
     var id = $($(this)).attr('data-burgerid');
     var burgerName = $($(this)).attr('data-burgername');
-
 
     var updatedBurger = {
       burgerId: id,
