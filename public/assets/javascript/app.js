@@ -33,6 +33,7 @@ $(document).ready(function(){
       .css('border-color', 'red');
     }
   }
+
   $(".burger-name").on("keydown", function(e){
     if(e.which === 13){
       createBurger();

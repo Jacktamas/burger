@@ -58,8 +58,10 @@ li {
 }
 .btn-lg {
   background-color: #aa0a0a;
+  margin-top: 10px;
 }
-label.strikethrough > input[type=checkbox]:checked  {
+.checkboxChecked {
+  color:grey;
   text-decoration: line-through;
 }
 .footer {
