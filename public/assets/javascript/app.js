@@ -10,7 +10,7 @@ $(document).ready(function(){
     }
   });
 
-  $("#createBurger").on("click", function() {
+  function createBurger() {
     var newBurger = {
       burger: $(".burger-name").val().trim()
     };
@@ -21,7 +21,7 @@ $(document).ready(function(){
         type: "POST",
         data: newBurger
       }).then(function(results) {
-        if(results.id && results.burger_name){
+        if(results.burger_name){
           $(window).scrollTop($('#top').offset().top);
           location.reload();
         }
@@ -32,26 +32,33 @@ $(document).ready(function(){
       .animateCss('shake')
       .css('border-color', 'red');
     }
+  }
+  $(".burger-name").on("keydown", function(e){
+    if(e.which === 13){
+      createBurger();
+    }
+  });
+  $("#createBurger").on("click", function(){
+    createBurger();
   });
 
-
-  $(".updateBurger").on("click", function() {
+  $(".updateBurger").on("click", function(){
     var id = $($(this)).attr('data-burgerid');
     var burgerName = $($(this)).attr('data-burgername');
 
     var updatedBurger = {
       burgerId: id,
       burgerName: burgerName
-    };
+    }
 
     // Send the PUT request.
     $.ajax("/burgers/"+ id, {
       type: "PUT",
       data: updatedBurger
-    }).then(function(response) {
-      if(response){
+    }).then(function(results){
+      if(results){
         location.reload();
       }
     });
   });
-})
+});

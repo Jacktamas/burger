@@ -1,40 +1,55 @@
-var Burger = require('../models/burger.js');
+var db = require('../models');
 
 module.exports = function(app){
 
   app.get('/', function(req, res){
-    Burger.selectAll(`burgers`, function(results){
+    db.Burger.findAll({}).then(function(results){
       var devouredBurgers = [];
       var burgers = [];
       for(var i=0; i < results.length; i++){
         if(results[i].devoured){
           devouredBurgers.push(results[i]);
         }
-        else if(! results[i].devoured){
+        else if(results[i].devoured === false){
           burgers.push(results[i]);
         }
       }
       res.render("index", {burgers: burgers, devouredBurgers: devouredBurgers});
-    });
+
+    }).catch(function(err){
+      if(err){
+        throw err;
+      }
+    })
+
   });
 
   app.post('/burgers', function(req, res) {
-    Burger.insertOne([''+req.body.burger+'', false], function(results){
-      if(results.insertId){
+    db.Burger.upsert({
+      burger_name: req.body.burger
+    }).then(function(results){
+      if(results){
         res.json(
           {
-            id: results.insertId,
             burger_name: req.body.burger
           }
         );
       }
     });
   });
+
   app.put('/burgers/:id', function(req, res){
     var id = req.params.id;
-    Burger.updateOne(true, id, function(results){
-      if(results.affectedRows === 1){
-        res.json(true)
+    db.Burger.update({
+      devoured: true
+    },
+    {
+      where: {
+        id: id
+      }
+    }).then(function(results){
+      if(results[0] === 1){
+        res.json(true);
       }
     });
 
