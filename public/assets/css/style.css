@@ -1,3 +1,10 @@
+body {
+  background: linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.8)), url('../images/background.jpeg');
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 .burgers, .devouredBurgers {
   font-size: 15px;
   font-style: italic;
@@ -40,6 +47,7 @@ li {
   color: #dddddd;
   font-size: 20px;
   font-family: fantasy;
+  padding: 3px;
 
 }
 .panel-blue {
